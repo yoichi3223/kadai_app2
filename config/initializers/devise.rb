@@ -295,7 +295,11 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-
+  Devise.setup do |config|
+  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  require 'devise/orm/active_record'  
+  config.scoped_views = true
+  end
   # ==> Turbolinks configuration
   # If your app is using Turbolinks, Turbolinks::Controller needs to be included to make redirection work correctly:
   #

@@ -1,2 +1,59 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<% if @new_book.errors.any? %>
+  <div class="alert alert-warning">
+    <h2 class="error-message"><%= pluralize(@new_book.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <ul>
+      <% @new_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="container">
+<div class="row">
+<div class="col-xs-3">
+          <h2>User info</h2>
+          <table class ="table table-hover table-inverse">
+          <tr>
+            <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+            <th>name</th>
+            <td><%=@user.name%></td>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <td><%=@user.introduction%></td>
+          </tr>
+          </table>
+          <%= link_to '',edit_user_path(@user),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench "%>
+            <h2>New book</h2>
+            <%= form_for(@new_book) do |f| %>
+            <div class ="field">
+            <%= f.label :title, "Title" %>
+            <%= f.text_field :title, class: "col-xs-12 book_title"%>
+            </div>
+            <div class ="field">
+              <%= f.label :title, "Opinion" %>
+            <%= f.text_area :body, class: "col-xs-12 book_title" %>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class ="action">
+              <%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+            </div>
+            <% end %>
+</div>
+<div class="col-xs-9">
+<h2>Book detail</h2>
+<table class="table table-striped">
+  <tr>
+  </tr><tr>
+    <td><%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %></td>
+    <td><%= @book.title%></td>
+    <td><%= @book.body%></td>
+    <td><%= link_to "Edit",edit_book_path(@book),class:"btn-sm btn-success edit_book_33138"%></td>
+    <td><%= link_to 'destroy',book_path(@book), method: :delete,class:"btn-sm btn-danger destroy_book_33138",data: {confirm: "本当に消しますか？"}%></td>
+  </tr>
+</table>
+</div>
+</div>
+</div>
