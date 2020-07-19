@@ -13,9 +13,10 @@
             <td><%=@user.introduction%></td>
           </tr>
           </table>
-          
+
           <%= link_to '',edit_user_path(@user),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench "%>
-        
+            <br>
+            <br>
             <h2>New book</h2>
             <%= form_for(@new_book) do |f| %>
             <div class ="field">
@@ -45,6 +46,7 @@
   <tr>
     <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %></td>
     <td><%= user.name%></td>
+    <td><%= link_to "show",user_path(user)%></td>
   </tr>
   <% end %>
 </table>
