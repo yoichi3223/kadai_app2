@@ -4,11 +4,11 @@
 <h1>User info</h1>
 <%= form_for(@user) do |f| %>
 <% if @user.errors.any? %>
-<div>
-<h2><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h2>
+<div >
+<h2 style = "color:red;"><%= pluralize(@user.errors.count, "error") %> prohibited this product from being saved:</h2>
 <ul>
 <% @user.errors.full_messages.each do |message| %>
-<li><%= message %></li>
+<li style = "color:red;"><%= message %></li>
 <% end %>
 <% end %>
   <h4>Name</h4>

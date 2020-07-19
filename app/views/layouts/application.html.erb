@@ -15,6 +15,9 @@
         .wrapper {
           margin-top: 51px;
         }
+        .flash{
+          color:green;
+      }
     </style>
   </head>
   <body>
@@ -41,12 +44,14 @@
   </div>
 </header>
 <div class="wrapper">
-    <% if flash[:notice] %>
+  <div class="container">
+        <% if flash[:notice] %>
     <div class="flash">
-    <%= flash[:notice] %>
+        <%= flash[:notice] %>
     </div>
-    <% end %>
-    <div>
+        <% end %>
+    </div>
+<div>
     <%= yield %>
   </div>
 </div>
