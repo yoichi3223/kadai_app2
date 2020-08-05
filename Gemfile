@@ -68,6 +68,7 @@ gem 'pry-rails'
 gem 'paperclip'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
+gem "jquery-rails"
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'rspec-rails'
